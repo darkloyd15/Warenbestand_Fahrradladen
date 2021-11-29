@@ -1,4 +1,4 @@
-# Warenbbestand_Fahrradladen
+# Warenbestand_Fahrradladen
 Schoolproject by Tim Korb, Drilon Cernoveri, Mohamad Latah
 
 3. Projekt: Fahrradladen - Warenbestand
