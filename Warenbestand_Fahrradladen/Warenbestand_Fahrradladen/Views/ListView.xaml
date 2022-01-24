@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Warenbestand_Fahrradladen.Views.ListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Margin="10">
+        <TextBlock MaxWidth="25" Text="Item Name" x:Name="SearchItem">
+        </TextBlock>
+        <ListBox MinHeight="100" Margin="10, 0, 50, 0"/>
+        <Grid Height="35" Margin="10, 10, 50, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Hinzufügen" x:Name="Add"/>
+            <Button Grid.Column="2" Content="Entfernen" x:Name="Remove"/>
+            <Button Grid.Column="4" Content="Einlagern" x:Name="Store"/>
+        </Grid>
+    </StackPanel>
+</UserControl>
