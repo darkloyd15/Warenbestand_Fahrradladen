@@ -7,12 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Anmeldung" HorizontalAlignment="Center" Margin="100, 100, 100, 100" VerticalAlignment="Top" Height="50" Width="138" FontSize="25"/>
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Width="120" Margin="100, 100, 100, 100"/>
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Width="120" Margin="200, 200, 200, 100" KeyDown="TextBox_KeyDown"/>
-        <Label Content="Anmeldename" HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.788,0.453" Width="91" Height="30"/>
-        <Label Content="Passwort" HorizontalAlignment="Left" Margin="245,245,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.788,0.453" Width="91" Height="30"/>
-        <Button Content="Anmelden" x:Name="btAnmelden" HorizontalAlignment="Left" Margin="336,307,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" KeyDown="Button_KeyDown" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Label Content="Anmeldename" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.788,0.453" Width="91" Height="30"/>
+                <Label Content="Passwort" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.788,0.453" Width="91" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Width="120" />
+                <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Width="120"  KeyDown="TextBox_KeyDown"/>
+                <Button Content="Anmelden" x:Name="btAnmelden" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Click="Button_Click" KeyDown="Button_KeyDown" />
+            </StackPanel>
+
+
+        </Grid>
     </Grid>
 </Window>
