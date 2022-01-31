@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Warenbestand_FahrradladenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Benutzer">
+          <Key>
+            <PropertyRef Name="ID_Benutzer" />
+          </Key>
+          <Property Name="ID_Benutzer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+          <Property Name="Rolle" Type="nvarchar" MaxLength="20" />
+          <Property Name="Passwort" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="ID_LogNr" />
+          </Key>
+          <Property Name="ID_LogNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hinzufügen" Type="int" />
+          <Property Name="entfernen" Type="int" />
+          <Property Name="Datum" Type="datetime" />
+          <Property Name="fk_WarenID" Type="int" />
+          <Property Name="fk_NutzerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ware">
+          <Key>
+            <PropertyRef Name="ID_Ware" />
+          </Key>
+          <Property Name="ID_Ware" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Anzahl" Type="int" />
+          <Property Name="Listenpreis" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="fk_NutzerId">
+          <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benutzer">
+              <PropertyRef Name="ID_Benutzer" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="fk_NutzerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WarenID">
+          <End Role="Ware" Type="Self.Ware" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ware">
+              <PropertyRef Name="ID_Ware" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="fk_WarenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Warenbestand_FahrradladenModelStoreContainer">
+          <EntitySet Name="Benutzer" EntityType="Self.Benutzer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ware" EntityType="Self.Ware" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_NutzerId" Association="Self.fk_NutzerId">
+            <End Role="Benutzer" EntitySet="Benutzer" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WarenID" Association="Self.fk_WarenID">
+            <End Role="Ware" EntitySet="Ware" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Warenbestand_FahrradladenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Benutzer">
+          <Key>
+            <PropertyRef Name="ID_Benutzer" />
+          </Key>
+          <Property Name="ID_Benutzer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Rolle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Passwort" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="log" Relationship="Self.fk_NutzerId" FromRole="Benutzer" ToRole="log" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="ID_LogNr" />
+          </Key>
+          <Property Name="ID_LogNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hinzufügen" Type="Int32" />
+          <Property Name="entfernen" Type="Int32" />
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <Property Name="fk_WarenID" Type="Int32" />
+          <Property Name="fk_NutzerId" Type="Int32" />
+          <NavigationProperty Name="Benutzer" Relationship="Self.fk_NutzerId" FromRole="log" ToRole="Benutzer" />
+          <NavigationProperty Name="Ware" Relationship="Self.fk_WarenID" FromRole="log" ToRole="Ware" />
+        </EntityType>
+        <EntityType Name="Ware">
+          <Key>
+            <PropertyRef Name="ID_Ware" />
+          </Key>
+          <Property Name="ID_Ware" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Anzahl" Type="Int32" />
+          <Property Name="Listenpreis" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="log" Relationship="Self.fk_WarenID" FromRole="Ware" ToRole="log" />
+        </EntityType>
+        <Association Name="fk_NutzerId">
+          <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benutzer">
+              <PropertyRef Name="ID_Benutzer" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="fk_NutzerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WarenID">
+          <End Role="Ware" Type="Self.Ware" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ware">
+              <PropertyRef Name="ID_Ware" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="fk_WarenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Warenbestand_FahrradladenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Benutzer" EntityType="Self.Benutzer" />
+          <EntitySet Name="log" EntityType="Self.log" />
+          <EntitySet Name="Ware" EntityType="Self.Ware" />
+          <AssociationSet Name="fk_NutzerId" Association="Self.fk_NutzerId">
+            <End Role="Benutzer" EntitySet="Benutzer" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WarenID" Association="Self.fk_WarenID">
+            <End Role="Ware" EntitySet="Ware" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Warenbestand_FahrradladenModelStoreContainer" CdmEntityContainer="Warenbestand_FahrradladenEntities">
+          <EntitySetMapping Name="Benutzer">
+            <EntityTypeMapping TypeName="Warenbestand_FahrradladenModel.Benutzer">
+              <MappingFragment StoreEntitySet="Benutzer">
+                <ScalarProperty Name="ID_Benutzer" ColumnName="ID_Benutzer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rolle" ColumnName="Rolle" />
+                <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="log">
+            <EntityTypeMapping TypeName="Warenbestand_FahrradladenModel.log">
+              <MappingFragment StoreEntitySet="log">
+                <ScalarProperty Name="ID_LogNr" ColumnName="ID_LogNr" />
+                <ScalarProperty Name="hinzufügen" ColumnName="hinzufügen" />
+                <ScalarProperty Name="entfernen" ColumnName="entfernen" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="fk_WarenID" ColumnName="fk_WarenID" />
+                <ScalarProperty Name="fk_NutzerId" ColumnName="fk_NutzerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ware">
+            <EntityTypeMapping TypeName="Warenbestand_FahrradladenModel.Ware">
+              <MappingFragment StoreEntitySet="Ware">
+                <ScalarProperty Name="ID_Ware" ColumnName="ID_Ware" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Anzahl" ColumnName="Anzahl" />
+                <ScalarProperty Name="Listenpreis" ColumnName="Listenpreis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
