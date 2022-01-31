@@ -24,5 +24,10 @@ namespace Warenbestand_Fahrradladen.Views
         {
             InitializeComponent();
         }
+
+        private void z(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
     }
 }

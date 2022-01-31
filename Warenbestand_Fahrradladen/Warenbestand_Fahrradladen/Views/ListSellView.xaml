@@ -3,31 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
              xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
 
-        <ListBox MinHeight="100" Margin="10, 20, 50, 0">
-            <TextBlock Text="Item Name"
-                       Width="150"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Bottom"
-                       Background="LightGray"
-                       TextWrapping="Wrap"/>
+    <Grid Height="35" Margin="10, 10, 50, 0" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="700" MinHeight="450">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        </ListBox>
+        <TextBlock Grid.Row="0" Grid.Column="0">Ware auswählen</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1">Menge eingeben</TextBlock>
+        
+        <ComboBox IsEditable="True" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" x:Name="ProductsName" SelectedItem ="{Binding SelectedProductsName}"></ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="ProductsQuantity" VerticalAlignment="Top" Text="{Binding Quantity}"></TextBox>
 
-        <Grid>
-            <Grid Height="35" Margin="10, 10, 50, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Verkaufen" x:Name="Sell"/>
-                <Button Grid.Column="2" Content="Abbrechen" x:Name="Abort"/>
-            </Grid>
-        </Grid>
-    </StackPanel>
+        <Button Grid.Column="0" Grid.Row="2" Content="Verkaufen" x:Name="Sell" Margin="20"/>
+        <Button Grid.Column="2" Grid.Row="2" Content="Abbrechen" x:Name="Abort" Margin="20"/>
+    </Grid>
+
+
 </UserControl>
