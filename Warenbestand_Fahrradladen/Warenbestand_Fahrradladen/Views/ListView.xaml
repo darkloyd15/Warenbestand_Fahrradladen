@@ -3,13 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+<<<<<<< HEAD
+=======
+             xmlns:cal="http://www.caliburnproject.org"
+>>>>>>> Drilon
              xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="10">
+<<<<<<< HEAD
         <TextBlock MaxWidth="25" Text="Item Name" x:Name="SearchItem">
         </TextBlock>
         <DataGrid x:Name="Products" MinHeight="100" Margin="10, 0, 50, 0"/>
+=======
+        <TextBox MaxWidth="100" Text="Item Name" cal:Message.Attach="[Event TextChanged] = [Action OnTextChanged($source)]">
+        </TextBox>
+        <DataGrid x:Name="Products"
+                  SelectedIndex="{Binding Index}"
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"
+                  EnableRowVirtualization="false" EnableColumnVirtualization="false" 
+                  AutoGenerateColumns="False"
+                  FontFamily="2  badr" FontSize="15" 
+                  CanUserAddRows="False" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID_Ware, Mode=OneWay}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=OneWay}" />
+                <DataGridTextColumn Header="Anzahl" Binding="{Binding Anzahl, StringFormat={}{0} St., Mode=OneWay}" />
+                <DataGridTextColumn Header="Listenpreis" Binding="{Binding Listenpreis, StringFormat={}{0:n2} €, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+>>>>>>> Drilon
         <Grid Height="35" Margin="10, 10, 50, 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>

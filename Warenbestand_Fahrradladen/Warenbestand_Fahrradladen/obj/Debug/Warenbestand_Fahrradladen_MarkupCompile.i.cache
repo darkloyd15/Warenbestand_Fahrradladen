@@ -4,11 +4,16 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
+=======
+C:\Users\dcrnv\source\repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
+>>>>>>> Drilon
 Warenbestand_Fahrradladen
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
 6-900755092
 2-1456169945
@@ -17,4 +22,14 @@ C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\
 MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
 
 False
+=======
+C:\Users\dcrnv\source\repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
+6-900755092
+2-1456169945
+31-167061831
+241316165985
+MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
+
+True
+>>>>>>> Drilon
 

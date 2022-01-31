@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+<<<<<<< HEAD
     <StackPanel>
 
         <ListBox MinHeight="100" Margin="10, 20, 50, 0">
@@ -30,4 +31,28 @@
             </Grid>
         </Grid>
     </StackPanel>
+=======
+    <Grid Height="35" Margin="10, 10, 50, 0" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="700" MinHeight="450">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0">Ware auswählen</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1">Menge eingeben</TextBlock>
+
+        <ComboBox IsEditable="True" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" x:Name="ProductsName" SelectedItem ="{Binding SelectedProductsName}"></ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="ProductsQuantity" VerticalAlignment="Top" Text="{Binding Quantity}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="ProductsPrice" VerticalAlignment="Top" Text="{Binding Price}"></TextBox>
+
+        <Button Grid.Column="0" Grid.Row="2" Content="Verkaufen" x:Name="Buy" Margin="20"/>
+        <Button Grid.Column="2" Grid.Row="2" Content="Abbrechen" x:Name="Abort" Margin="20"/>
+    </Grid>
+>>>>>>> Drilon
 </UserControl>

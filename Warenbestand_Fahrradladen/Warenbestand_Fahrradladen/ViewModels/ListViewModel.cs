@@ -6,6 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+<<<<<<< HEAD
+=======
+
+using System.Windows;
+
+>>>>>>> Drilon
 using System.Windows.Controls;
 using System.Windows.Data;
 using Warenbestand_Fahrradladen.EventModels;
@@ -15,6 +21,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     public class ListViewModel : Screen
     {
+<<<<<<< HEAD
         Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
         private readonly IEventAggregator _events;
 
@@ -25,6 +32,16 @@ namespace Warenbestand_Fahrradladen.ViewModels
         {
             _events = events;
             _loggedInUser = loggedInUser;            
+=======
+
+        public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
+        private readonly IEventAggregator _events;
+        public ListViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
+        {
+            _events = events;
+            _loggedInUser = loggedInUser;
+
+>>>>>>> Drilon
             Products = new BindableCollection<Ware>(ctx.Ware);
         }
 
@@ -39,6 +56,21 @@ namespace Warenbestand_Fahrradladen.ViewModels
                 NotifyOfPropertyChange(() => Products);
             }
         }
+<<<<<<< HEAD
+=======
+        private int _index;
+
+        public int Index
+        {
+            get { return _index; }
+            set
+            {
+                _index = value;
+                NotifyOfPropertyChange(() => Index);
+            }
+        }
+
+>>>>>>> Drilon
 
         private ILoggedInUserModel _loggedInUser;
 
@@ -57,6 +89,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
         {
             get
             {
+<<<<<<< HEAD
                 return LoggedInUser.Role.Equals("Admin") || LoggedInUser.Role.Equals("Chef");
             }
         }
@@ -64,19 +97,34 @@ namespace Warenbestand_Fahrradladen.ViewModels
 
 
 
+=======
+                return LoggedInUser.Role.Equals("Admin") || LoggedInUser.Role.Equals("Leiter");
+            }
+        }
+
+>>>>>>> Drilon
         public void Add()
         {
             _events.PublishOnUIThreadAsync(new AddEvent());
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Drilon
         public void Remove()
         {
             _events.PublishOnUIThreadAsync(new RemoveEvent());
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Drilon
         public void Store()
         {
             _events.PublishOnUIThreadAsync(new StoreEvent());
         }
 
+<<<<<<< HEAD
 
         //Testliste einfügen
 
@@ -100,5 +148,13 @@ namespace Warenbestand_Fahrradladen.ViewModels
         }
 
 
+=======
+        public void OnTextChanged(TextBox source)
+        {
+            string filter = source.Text.ToLower();
+
+            Index = Products.IndexOf(Products.FirstOrDefault(x => x.Name.ToLower().Contains(filter)));
+        }
+>>>>>>> Drilon
     }
 }
