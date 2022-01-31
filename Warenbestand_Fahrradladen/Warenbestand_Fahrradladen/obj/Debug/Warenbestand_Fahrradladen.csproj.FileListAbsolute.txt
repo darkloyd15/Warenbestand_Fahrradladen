@@ -92,6 +92,7 @@ C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen_Content.g.cs
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\Warenbestand_Fahrradladen.exe.config
 C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\Warenbestand_Fahrradladen.exe
@@ -139,3 +140,7 @@ C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\
 C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen.exe
 C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen.pdb
 >>>>>>> Drilon
+=======
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Views\ListStoreView.g.cs
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Views\ListStoreView.baml
+>>>>>>> BranchTim
