@@ -13,16 +13,19 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     class ListBuyViewModel : Screen
     {
+
         public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
 
         private readonly IEventAggregator _events;
 
         private readonly ILoggedInUserModel _loggedInUser;
 
+
         public ListBuyViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
             _loggedInUser = loggedInUser;
+
 
             ctx.Ware.ToList().ForEach(x => ProductsName.Add(x.Name));
         }
@@ -78,10 +81,12 @@ namespace Warenbestand_Fahrradladen.ViewModels
             }
         }
 
+
         public void Abort()
         {
             _events.PublishOnUIThreadAsync(new AbortEvent());
         }
+
 
         public bool CanProductsPrice
         {
@@ -102,5 +107,6 @@ namespace Warenbestand_Fahrradladen.ViewModels
 
             //}
         }
+
     }
 }

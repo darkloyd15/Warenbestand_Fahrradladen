@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
 using System.Windows;
+
 using System.Windows.Controls;
 using System.Windows.Data;
 using Warenbestand_Fahrradladen.EventModels;
@@ -16,12 +18,14 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     public class ListViewModel : Screen
     {
+
         public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
         private readonly IEventAggregator _events;
         public ListViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
             _loggedInUser = loggedInUser;
+
             Products = new BindableCollection<Ware>(ctx.Ware);
         }
 
