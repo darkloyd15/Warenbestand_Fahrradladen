@@ -1,17 +1,20 @@
-﻿using Caliburn.Micro;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
+
 using Warenbestand_Fahrradladen.EventModels;
 using Warenbestand_Fahrradladen.Models;
 
 namespace Warenbestand_Fahrradladen.ViewModels
 {
+
     public class ListSellViewModel : Screen
     {
         public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
@@ -20,10 +23,12 @@ namespace Warenbestand_Fahrradladen.ViewModels
 
         private readonly ILoggedInUserModel _loggedInUser;
 
+
         public ListSellViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
             _loggedInUser = loggedInUser;
+
 
             ctx.Ware.ToList().ForEach(x => ProductsName.Add(x.Name));
         }
@@ -69,6 +74,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
             _events.PublishOnUIThreadAsync(new AbortEvent());
         }
 
+
         public void Sell()
         {
             Ware ware = ctx.Ware.FirstOrDefault(x => x.Name.Equals(SelectedProductsName));
@@ -83,5 +89,6 @@ namespace Warenbestand_Fahrradladen.ViewModels
                 MessageBox.Show($"Es wurden {Quantity} Stücke von {SelectedProductsName} entfernt!");
             }
         }
+
     }
 }
