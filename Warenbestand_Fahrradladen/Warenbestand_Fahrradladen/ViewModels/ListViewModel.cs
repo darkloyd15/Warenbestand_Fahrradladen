@@ -71,11 +71,6 @@ namespace Warenbestand_Fahrradladen.ViewModels
         public void Store()
         {
             _events.PublishOnUIThreadAsync(new StoreEvent());
-        }
-
-        public void OnTextChanged(TextBox source)
-        {
-            MessageBox.Show("lol");
-        }
+        }        
     }
 }

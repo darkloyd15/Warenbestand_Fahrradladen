@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
-6-900755092
+7-1068144205
 2-1456169945
-31-167061831
+32-286546985
 241486591280
-MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
+MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListStoreView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
 
 True
 

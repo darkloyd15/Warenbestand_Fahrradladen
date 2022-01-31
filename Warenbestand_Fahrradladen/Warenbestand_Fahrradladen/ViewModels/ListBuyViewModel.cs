@@ -42,9 +42,9 @@ namespace Warenbestand_Fahrradladen.ViewModels
             }
         }
 
-        private double _price;
+        private decimal? _price = null;
 
-        public double Price
+        public decimal? Price
         {
             get { return _price; }
             set
@@ -65,6 +65,8 @@ namespace Warenbestand_Fahrradladen.ViewModels
             {
                 _quantity = value;
                 NotifyOfPropertyChange(() => Quantity);
+                NotifyOfPropertyChange(() => CanProductsPrice);
+
             }
         }
 
@@ -84,23 +86,38 @@ namespace Warenbestand_Fahrradladen.ViewModels
         }
 
         public bool CanProductsPrice
-        {
+        {            
             get
             {
-                return ctx.Ware.Any(x=> x.Name.Equals(SelectedProductsName));
+                if (ProductsName.Any(x => x.Equals(SelectedProductsName)))
+                {
+                    Price = ctx.Ware.FirstOrDefault(x => x.Name.Equals(SelectedProductsName)).Listenpreis * Convert.ToInt32(Quantity);
+                    return true;
+                }
+                return false;
+                 
             }
         }
-        public void Sell()
+        public void Buy()
         {
-            //Ware ware = new
-            //if ()
-            //{
+            Ware Bestellung = new Ware();
+            Bestellung.Name = SelectedProductsName;
+            Bestellung.Anzahl = Convert.ToInt32(Quantity);
+            Bestellung.Listenpreis = Price / Bestellung.Anzahl;
 
-            //}
-            //else
-            //{
-
-            //}
+            BindableCollection<Ware> Products = new BindableCollection<Ware>(ctx.Ware);
+            if (Products.Any(x => x.Name.ToLower().Equals(SelectedProductsName.ToLower())))
+            {
+                Products[Products.IndexOf(Products.FirstOrDefault(x => x.Name.ToLower() == Bestellung.Name.ToLower()))].Anzahl += Bestellung.Anzahl;
+                ctx.SaveChanges();
+                MessageBox.Show($"Es wurden {Quantity} zu {SelectedProductsName} hinzugefügt");
+            }
+            else
+            {
+                ctx.Ware.Add(Bestellung);
+                ctx.SaveChanges();
+                MessageBox.Show($"Das Produkt '{SelectedProductsName}' wurde mit der Menge {Quantity} und einem ListenPreis von {Bestellung.Listenpreis}€ hinzugefügt");
+            } 
         }
     }
 }

@@ -89,6 +89,9 @@
     <Compile Include="log.cs">
       <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListStoreView.xaml.cs">
+      <DependentUpon>ListStoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ware.cs">
       <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListSellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListStoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
