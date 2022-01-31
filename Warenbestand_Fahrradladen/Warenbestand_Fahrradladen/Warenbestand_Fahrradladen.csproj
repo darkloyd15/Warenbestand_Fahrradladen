@@ -44,10 +44,17 @@
     <Reference Include="Caliburn.Micro.Platform.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.4.0.173\lib\net461\Caliburn.Micro.Platform.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -55,10 +62,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-
     <Reference Include="System" />
     <Reference Include="System.Data" />
-
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,20 +83,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
+    <Compile Include="Benutzer.cs">
+      <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="log.cs">
+      <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ware.cs">
+      <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarenbestandDataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarenbestandDataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarenbestandDataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarenbestandDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarenbestandDataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarenbestandDataBaseModel.edmx</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-
+    <Compile Include="EventModels\AddEvent.cs" />
+    <Compile Include="Models\ILoggedInUserModel.cs" />
+    <Compile Include="Models\LoggedInUserModel.cs" />
+    <Compile Include="EventModels\AbortEvent.cs" />
     <Compile Include="ViewModels\ListBuyViewModel.cs" />
     <Compile Include="ViewModels\ListSellViewModel.cs" />
+    <Compile Include="ViewModels\ListStoreViewModel.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
+    <Compile Include="EventModels\RemoveEvent.cs" />
+    <Compile Include="EventModels\StoreEvent.cs" />
+    <Compile Include="EventModels\LoginEvent.cs" />
     <Compile Include="Views\ListBuyView.xaml.cs">
       <DependentUpon>ListBuyView.xaml</DependentUpon>
     </Compile>
@@ -111,14 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-	  
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -140,6 +173,13 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="WarenbestandDataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WarenbestandDataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WarenbestandDataBaseModel.edmx.diagram">
+      <DependentUpon>WarenbestandDataBaseModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -168,9 +208,19 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EventModels\" />
-    <Folder Include="Models\" />
+    <Content Include="WarenbestandDataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WarenbestandDataBaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>WarenbestandDataBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="WarenbestandDataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WarenbestandDataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>WarenbestandDataBaseModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
-
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

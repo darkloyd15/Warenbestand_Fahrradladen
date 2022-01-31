@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
 Warenbestand_Fahrradladen
 none
 false
 DEBUG;TRACE
-C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
 6-900755092
-
-17-1681940323
-20664747318
+2-1456169945
+31-167061831
+241486591280
 MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
 
-True
+False
 
