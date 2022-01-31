@@ -15,7 +15,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     public class ListViewModel : Screen
     {
-        //Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
+        Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
         private readonly IEventAggregator _events;
 
         public List<string> list;
@@ -24,22 +24,21 @@ namespace Warenbestand_Fahrradladen.ViewModels
         public ListViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
-            _loggedInUser = loggedInUser;
-            list = new List<string> { "Test", "Text" };
+            _loggedInUser = loggedInUser;            
+            Products = new BindableCollection<Ware>(ctx.Ware);
         }
-        //    Products = new BindableCollection<Ware>(ctx.Ware);
 
-        //private BindableCollection<Ware> _products;
+        private BindableCollection<Ware> _products;
 
-        //public BindableCollection<Ware> Products
-        //{
-        //    get { return _products; }
-        //    set
-        //    {
-        //        _products = value;
-        //        NotifyOfPropertyChange(() => Products);
-        //    }
-        //}
+        public BindableCollection<Ware> Products
+        {
+            get { return _products; }
+            set
+            {
+                _products = value;
+                NotifyOfPropertyChange(() => Products);
+            }
+        }
 
         private ILoggedInUserModel _loggedInUser;
 

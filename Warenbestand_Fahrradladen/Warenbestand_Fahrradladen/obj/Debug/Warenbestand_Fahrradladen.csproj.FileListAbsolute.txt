@@ -86,3 +86,8 @@ C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen.csproj.CopyComplete
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen.exe
 C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen.pdb
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\EntityFramework.dll
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\EntityFramework.xml
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\Warenbestand_Fahrradladen_Content.g.cs

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using Warenbestand_Fahrradladen.EventModels;
 using Warenbestand_Fahrradladen.Models;
@@ -12,6 +13,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     class LoginViewModel : Screen
     {
+        public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
         public LoginViewModel(ILoggedInUserModel loggedInUser, IEventAggregator events)
         {
             _loggedInUser = loggedInUser;
@@ -55,23 +57,21 @@ namespace Warenbestand_Fahrradladen.ViewModels
                 return !String.IsNullOrEmpty(UserName) && !String.IsNullOrEmpty(Password);
             }
         }
+
         public void Login()
         {
-            _loggedInUser.Name = UserName;
-            if (UserName.Equals("Tim"))
+            Benutzer LogOnUser = ctx.Benutzer.FirstOrDefault(x => x.Name.Equals(UserName));
+            if (LogOnUser == null || LogOnUser.Passwort != Password)
             {
-                _loggedInUser.Role = "Admin";
+                MessageBox.Show("Ungülitger Nutzername oder Passwort");                
             }
-            if (UserName.Equals("Drilon"))
+            else 
             {
-                _loggedInUser.Role = "Chef";
-            }
-            if (UserName.Equals("Adrian"))
-            {
-                _loggedInUser.Role = "Mitarbeiter";
+                _loggedInUser.Name = UserName;
+                _loggedInUser.Role = LogOnUser.Rolle;
+                _events.PublishOnUIThreadAsync(new LoginEvent());
             }
 
-            _events.PublishOnUIThreadAsync(new LoginEvent());
         }
         public void OnPasswordChanged(PasswordBox source)
         {

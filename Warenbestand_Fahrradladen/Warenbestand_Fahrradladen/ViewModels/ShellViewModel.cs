@@ -15,19 +15,41 @@ namespace Warenbestand_Fahrradladen.ViewModels
 
         public ShellViewModel(IEventAggregator events)
         {
-
             ActivateItemAsync(IoC.Get<LoginViewModel>());
             _events = events;
             events.SubscribeOnPublishedThread(this);
         }
+        private bool _logoutSwitch = false;
 
+        public bool LogoutSwitch
+        {
+            get { return _logoutSwitch; }
+            set
+            {
+                _logoutSwitch = value;
+                NotifyOfPropertyChange(() => LogoutSwitch);
+                NotifyOfPropertyChange(() => CanLogout);
+
+            }
+        }
+
+
+        public bool CanLogout
+        {
+            get
+            {
+                return LogoutSwitch;
+            }
+        }
         public void Logout()
         {
+            LogoutSwitch = false;
             ActivateItemAsync(IoC.Get<LoginViewModel>());
         }
 
         public Task HandleAsync(LoginEvent message, CancellationToken cancellationToken)
         {
+            LogoutSwitch = true;
             return ActivateItemAsync(IoC.Get<ListViewModel>());
         }
 
