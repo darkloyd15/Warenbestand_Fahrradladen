@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using Warenbestand_Fahrradladen.EventModels;
@@ -15,16 +16,12 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     public class ListViewModel : Screen
     {
-        Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
+        public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
         private readonly IEventAggregator _events;
-
-        public List<string> list;
-        public string Item { get; set; }
-
         public ListViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
-            _loggedInUser = loggedInUser;            
+            _loggedInUser = loggedInUser;
             Products = new BindableCollection<Ware>(ctx.Ware);
         }
 
@@ -57,48 +54,28 @@ namespace Warenbestand_Fahrradladen.ViewModels
         {
             get
             {
-                return LoggedInUser.Role.Equals("Admin") || LoggedInUser.Role.Equals("Chef");
+                return LoggedInUser.Role.Equals("Admin") || LoggedInUser.Role.Equals("Leiter");
             }
         }
-
-
-
 
         public void Add()
         {
             _events.PublishOnUIThreadAsync(new AddEvent());
         }
+
         public void Remove()
         {
             _events.PublishOnUIThreadAsync(new RemoveEvent());
         }
+
         public void Store()
         {
             _events.PublishOnUIThreadAsync(new StoreEvent());
         }
 
-
-        //Testliste einfügen
-
-        //public void Search()
-        //{
-        //    Item = SearchItem.Name;
-        //}
-
-
-
-
         public void OnTextChanged(TextBox source)
         {
-            string searchStr = source.Text;
-            // Zurücksetzen des Filters
-
-            // Typumwandlung der Liste mit der Cast() Methode
-            //var Listeneu = Products.Cast<string>();
-            //String n = list.FirstOrDefault(x => x.ToLower().Contains(searchStr));
-            //Products.FirstOrDefault(x => x.ToLower().Contains(searchStr));
+            MessageBox.Show("lol");
         }
-
-
     }
 }
