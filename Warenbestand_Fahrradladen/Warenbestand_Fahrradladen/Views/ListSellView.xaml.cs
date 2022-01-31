@@ -24,13 +24,10 @@ namespace Warenbestand_Fahrradladen.Views
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
 
         private void z(object sender, DependencyPropertyChangedEventArgs e)
         {
 
         }
->>>>>>> Drilon
     }
 }

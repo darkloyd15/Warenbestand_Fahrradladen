@@ -3,35 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-<<<<<<< HEAD
-             xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-
-        <ListBox MinHeight="100" Margin="10, 20, 50, 0">
-            <TextBlock Text="Item Name"
-                       Width="150"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Bottom"
-                       Background="LightGray"
-                       TextWrapping="Wrap"/>
-
-        </ListBox>
-
-        <Grid>
-            <Grid Height="35" Margin="10, 10, 50, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Verkaufen" x:Name="Sell"/>
-                <Button Grid.Column="2" Content="Abbrechen" x:Name="Abort"/>
-            </Grid>
-        </Grid>
-    </StackPanel>
-=======
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:local="clr-namespace:Warenbestand_Fahrradladen.Views"
              mc:Ignorable="d" 
@@ -60,5 +31,4 @@
     </Grid>
 
 
->>>>>>> Drilon
 </UserControl>

@@ -5,10 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-=======
 using System.Windows;
->>>>>>> Drilon
 using Warenbestand_Fahrradladen.EventModels;
 using Warenbestand_Fahrradladen.Models;
 
@@ -16,36 +13,18 @@ namespace Warenbestand_Fahrradladen.ViewModels
 {
     class ListBuyViewModel : Screen
     {
-<<<<<<< HEAD
-        private readonly IEventAggregator _events;
-        private readonly ILoggedInUserModel _loggedInUser;
-        public List<string> list;
-        public string Item { get; set; }
-=======
 
         public Warenbestand_FahrradladenEntities ctx = new Warenbestand_FahrradladenEntities();
 
         private readonly IEventAggregator _events;
 
         private readonly ILoggedInUserModel _loggedInUser;
->>>>>>> Drilon
 
 
         public ListBuyViewModel(IEventAggregator events, ILoggedInUserModel loggedInUser)
         {
             _events = events;
             _loggedInUser = loggedInUser;
-<<<<<<< HEAD
-            list = new List<string> { "Test", "Text" };
-
-        }
-
-
-        public void Add()
-        {
-            _events.PublishOnUIThreadAsync(new AddEvent());
-        }
-=======
 
 
             ctx.Ware.ToList().ForEach(x => ProductsName.Add(x.Name));
@@ -103,13 +82,10 @@ namespace Warenbestand_Fahrradladen.ViewModels
         }
 
 
->>>>>>> Drilon
         public void Abort()
         {
             _events.PublishOnUIThreadAsync(new AbortEvent());
         }
-<<<<<<< HEAD
-=======
 
 
         public bool CanProductsPrice
@@ -132,6 +108,5 @@ namespace Warenbestand_Fahrradladen.ViewModels
             //}
         }
 
->>>>>>> Drilon
     }
 }

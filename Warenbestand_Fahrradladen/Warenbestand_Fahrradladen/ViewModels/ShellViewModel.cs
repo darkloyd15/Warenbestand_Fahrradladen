@@ -9,11 +9,7 @@ using Warenbestand_Fahrradladen.EventModels;
 
 namespace Warenbestand_Fahrradladen.ViewModels
 {
-<<<<<<< HEAD
-    class ShellViewModel : Conductor<object>, IHandle<LoginEvent>, IHandle<AddEvent>, IHandle<RemoveEvent>, IHandle<StoreEvent>
-=======
     class ShellViewModel : Conductor<object>, IHandle<LoginEvent>, IHandle<AddEvent>, IHandle<RemoveEvent>, IHandle<StoreEvent>, IHandle<AbortEvent>
->>>>>>> Drilon
     {
         private readonly IEventAggregator _events;
 
@@ -71,13 +67,10 @@ namespace Warenbestand_Fahrradladen.ViewModels
         {
             return ActivateItemAsync(IoC.Get<ListBuyViewModel>());
         }
-<<<<<<< HEAD
-=======
 
         public Task HandleAsync(AbortEvent message, CancellationToken cancellationToken)
         {
             return ActivateItemAsync(IoC.Get<ListViewModel>());
         }
->>>>>>> Drilon
     }
 }
