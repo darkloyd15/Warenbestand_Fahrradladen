@@ -3,15 +3,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Warenbestand_Fahrradladen.EventModels;
 
 namespace Warenbestand_Fahrradladen.ViewModels
 {
-    class ShellViewModel : Conductor<object>
+    class ShellViewModel : Conductor<object>, IHandle<LoginEvent>, IHandle<AddEvent>, IHandle<RemoveEvent>, IHandle<StoreEvent>
     {
-        public ShellViewModel()
+        private readonly IEventAggregator _events;
+
+        public ShellViewModel(IEventAggregator events)
+        {
+
+            ActivateItemAsync(IoC.Get<LoginViewModel>());
+            _events = events;
+            events.SubscribeOnPublishedThread(this);
+        }
+
+        public void Logout()
         {
             ActivateItemAsync(IoC.Get<LoginViewModel>());
+        }
+
+        public Task HandleAsync(LoginEvent message, CancellationToken cancellationToken)
+        {
+            return ActivateItemAsync(IoC.Get<ListViewModel>());
+        }
+
+        public Task HandleAsync(StoreEvent message, CancellationToken cancellationToken)
+        {
+            return ActivateItemAsync(IoC.Get<ListStoreViewModel>());
+        }
+
+        public Task HandleAsync(RemoveEvent message, CancellationToken cancellationToken)
+        {
+            return ActivateItemAsync(IoC.Get<ListSellViewModel>());
+        }
+
+        public Task HandleAsync(AddEvent message, CancellationToken cancellationToken)
+        {
+            return ActivateItemAsync(IoC.Get<ListBuyViewModel>());
         }
     }
 }

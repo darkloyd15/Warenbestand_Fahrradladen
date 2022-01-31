@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Warenbestand_Fahrradladen.Models;
 
 namespace Warenbestand_Fahrradladen
 {
@@ -23,7 +24,8 @@ namespace Warenbestand_Fahrradladen
         {
             _container = new SimpleContainer();
             _container.Singleton<IEventAggregator, EventAggregator>()
-                .Singleton<IWindowManager, WindowManager>();
+                .Singleton<IWindowManager, WindowManager>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
