@@ -85,5 +85,3 @@ namespace Warenbestand_Fahrradladen.ViewModels
         }
     }
 }
-    }
-}
