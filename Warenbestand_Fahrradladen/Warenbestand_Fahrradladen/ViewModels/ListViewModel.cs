@@ -28,6 +28,17 @@ namespace Warenbestand_Fahrradladen.ViewModels
 
             Products = new BindableCollection<Ware>(ctx.Ware);
         }
+        private int _index;
+
+        public int Index
+        {
+            get { return _index; }
+            set
+            {
+                _index = value;
+                NotifyOfPropertyChange(() => Index);
+            }
+        }
 
         private BindableCollection<Ware> _products;
 
