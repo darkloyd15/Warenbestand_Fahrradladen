@@ -76,5 +76,14 @@ namespace Warenbestand_Fahrradladen.ViewModels
         {
             _events.PublishOnUIThreadAsync(new StoreEvent());
         }
+        
+        public void OnTextChanged(TextBox source)
+        {
+            string filter = source.Text.ToLower();
+
+            Index = Products.IndexOf(Products.FirstOrDefault(x => x.Name.ToLower().Contains(filter)));
+        }
+    }
+}
     }
 }
