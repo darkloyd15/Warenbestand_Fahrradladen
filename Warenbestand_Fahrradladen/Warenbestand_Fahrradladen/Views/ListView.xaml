@@ -8,9 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="10">
-        <TextBox MaxWidth="25" Text="Item Name" x:Name="LookForItem" cal:Message.Attach="[Event TextChanged] = [Action OnTextChanged($source)]">
+        <TextBox MaxWidth="100" Text="Item Name" cal:Message.Attach="[Event TextChanged] = [Action OnTextChanged($source)]">
         </TextBox>
-        <DataGrid x:Name="Products"                  
+        <DataGrid x:Name="Products" 
+                  SelectedIndex="{Binding Index}"
                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"
                   EnableRowVirtualization="false" EnableColumnVirtualization="false" 
                   AutoGenerateColumns="False"
