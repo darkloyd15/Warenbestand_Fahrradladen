@@ -10,8 +10,13 @@
     <StackPanel Margin="10">
         <TextBox MaxWidth="100" Text="Item Name" cal:Message.Attach="[Event TextChanged] = [Action OnTextChanged($source)]">
         </TextBox>
+<<<<<<< HEAD
         <DataGrid x:Name="Products"
                   SelectedIndex = "{Binding Index}"
+=======
+        <DataGrid x:Name="Products" 
+                  SelectedIndex="{Binding Index}"
+>>>>>>> BranchTim
                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"
                   EnableRowVirtualization="false" EnableColumnVirtualization="false" 
                   AutoGenerateColumns="False"
