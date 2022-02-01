@@ -29,7 +29,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
             Products = new BindableCollection<Ware>(ctx.Ware);
         }
         private int _index;
-<<<<<<< HEAD
+
 
         public int Index
         {
@@ -40,18 +40,7 @@ namespace Warenbestand_Fahrradladen.ViewModels
                 NotifyOfPropertyChange(() => Index);
             }
         }
-=======
->>>>>>> BranchTim
 
-        public int Index
-        {
-            get { return _index; }
-            set
-            {
-                _index = value;
-                NotifyOfPropertyChange(() => Index);
-            }
-        }
         private BindableCollection<Ware> _products;
 
         public BindableCollection<Ware> Products
@@ -98,7 +87,6 @@ namespace Warenbestand_Fahrradladen.ViewModels
         public void Store()
         {
             _events.PublishOnUIThreadAsync(new StoreEvent());
-<<<<<<< HEAD
         }
         
         public void OnTextChanged(TextBox source)
@@ -106,12 +94,6 @@ namespace Warenbestand_Fahrradladen.ViewModels
             string filter = source.Text.ToLower();
 
             Index = Products.IndexOf(Products.FirstOrDefault(x => x.Name.ToLower().Contains(filter)));
-=======
-        }        
-        public void OnTextChanged(TextBox source)
-        {
-            Index = Products.IndexOf(Products.FirstOrDefault(x => x.Name.ToLower().Contains(source.Text.ToLower())));
->>>>>>> BranchTim
         }
     }
 }

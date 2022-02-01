@@ -4,33 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
-=======
-C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
->>>>>>> Drilon
+C:\Users\tim-k\source\repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\obj\Debug\
 Warenbestand_Fahrradladen
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\tim-k\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
+C:\Users\tim-k\source\repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
 7-1068144205
 2-1456169945
 31555812382
-241486591280
-<<<<<<< HEAD
-=======
-C:\Users\dcrnv\Source\Repos\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\Warenbestand_Fahrradladen\App.xaml
-6-900755092
-2-1456169945
-30675297536
-24-2090516051
->>>>>>> Drilon
-MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
-=======
+24-1555906914
 MainWindow.xaml;Views\ListBuyView.xaml;Views\ListSellView.xaml;Views\ListStoreView.xaml;Views\ListView.xaml;Views\LoginView.xaml;Views\ShellView.xaml;
->>>>>>> BranchTim
 
 False
 
